@@ -1,0 +1,61 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  <title>SLIIT Campus - Malabe</title>
+
+</head>
+
+<body>
+  <div class="container" ng-controller="AppCtrl">
+   
+   <h1>Course Registration</h1>
+
+    <table class="table">
+      
+      <thead>
+        <tr>
+          <th>Full Name</th>         
+          <th>NIC</th>
+          <th>Email</th>
+          <th>Telephone</th>
+		      <th>Course</th>
+		      <th>Action</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><input class="form-control" ng-model="stu.fullname"></td>
+		      <td><input class="form-control" ng-model="stu.nic"></td>
+          <td><input class="form-control" ng-model="stu.email"></td>
+          <td><input class="form-control" ng-model="stu.tp"></td>
+		      <td><input class="form-control" ng-model="stu.course"></td>
+          <td><button class="btn btn-primary" ng-click="insert_reg()">  Add Contact  </button></td>
+          <td><button class="btn btn-info" ng-click="update_reg()">  Update  </button> </td>
+		      <td> <button class="btn btn-info" ng-click="clear()">Clear</button></td> 
+        </tr>
+        
+        <tr ng-repeat="stu in db_name">
+            <td>{{stu.fullname}}</td>
+		        <td>{{stu.nic}}</td>
+            <td>{{stu.email}}</td>
+            <td>{{stu.tp}}</td>
+		        <td>{{stu.course}}</td>
+            <td><button class="btn btn-danger" ng-click="remove_reg(stu._id)">  Remove  </button></td>
+            <td><button class="btn btn-warning" ng-click="edit_reg(stu._id)">  Edit  </button></td>
+        </tr>
+      </tbody>
+    
+    </table>
+
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
